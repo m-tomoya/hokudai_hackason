@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>Aids Support List</h1>
+    <h1>Support List</h1>
     <p>
       <!-- For a guide and recipes on how to configure / customize this project,<br> -->
       <!-- check out the -->
@@ -8,20 +8,51 @@
     </p>
     <h3>Reccomend List</h3>
     <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+      <li v-for="aid in aids" :key="aid.name">
+        <a href="" target="_blank" rel="noopener">{{ aid.fields.name.stringValue }}</a>
+        {{ aid.fields.name.stringValue }}
+        {{ aid.fields.address.stringValue }}
+        {{ aid.fields.note.stringValue }}
+        {{ aid.fields.officeName.stringValue }}
+        {{ aid.fields.startDate.timestampValue }}
+        {{ aid.fields.endDate.timestampValue }}
+      </li>
     </ul>
     <h3>All List</h3>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
+
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
     </ul>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Aids',
+  date() {
+    return {
+      aids: []
+    }
+  },
+ created() {
+     this.getAidsList();
+  },
+  methods: {
+   getAidsList(){
+     axios.get(
+      // url
+      'https://firestore.googleapis.com/v1/projects/hokudai-hackason/databases/(default)/documents/aids',
+    )
+    .then(response => {
+      console.log(response.data)
+      this.aids = response.data.documents;
+})
+
+   }
+  }
 }
 </script>
 
