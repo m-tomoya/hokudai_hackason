@@ -1,9 +1,9 @@
 <template>
   <div class="hello">
     <img alt="Vue logo" src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
+    <h1>Agriculture Solution for Empty Housing</h1>
     <p>
-      Solution Platform for Empty House Problem In Hokkaido. <br>
+      Solution Platform for Empty Housing Problem In Hokkaido. <br>
       Sponcered by Hokkaido University.
       <!-- <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>. -->
     </p>
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Top',
   props: {
     msg: String
   }
