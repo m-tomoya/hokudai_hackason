@@ -1,4 +1,4 @@
-# test_vuetify
+# hokudai_hackason
 
 ## Project setup
 ```

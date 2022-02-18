@@ -2,7 +2,21 @@
   <v-container>
     <div class="hello">
       <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-      <h1>Agriculture Solution for Empty Housing</h1>
+      <!-- <h1>Agriculture Solution for Empty Housing</h1> -->
+      <v-carousel
+        cycle
+        height="400"
+        hide-delimiter-background
+        show-arrows-on-hover
+      >
+        <v-carousel-item v-for="(slide, i) in slides" :key="i">
+          <v-sheet :color="colors[i]" height="100%">
+            <v-row class="fill-height" align="center" justify="center">
+              <div class="text-h2">{{ slide }} Slide</div>
+            </v-row>
+          </v-sheet>
+        </v-carousel-item>
+      </v-carousel>
       <p>
         Solution Platform for Empty Housing Problem In Hokkaido. <br />
         Sponcered by Hokkaido University.
@@ -29,7 +43,7 @@
             target="_blank"
             rel="noopener"
           >
-            AIDS SUPPORTER REGISTER FORM
+            SUPPORTER REGISTER FORM
           </a>
         </li>
       </ul>
@@ -50,6 +64,18 @@ export default {
   name: "TopView",
   props: {
     msg: String,
+  },
+  data: () => {
+    return {
+      colors: [
+        "indigo",
+        "warning",
+        "pink darken-2",
+        "red lighten-1",
+        "deep-purple accent-4",
+      ],
+      slides: ["First", "Second", "Third", "Fourth", "Fifth"],
+    };
   },
 };
 </script>
