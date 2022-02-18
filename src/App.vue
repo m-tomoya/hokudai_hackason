@@ -41,7 +41,7 @@
       <router-view />
     </v-main>
     <v-footer dark padless app>
-      <v-card flat tile class="indigo lighten-1 white--text text-center">
+      <v-card flat tile class="green lighten-1 white--text text-center">
         <v-card-text>
           <v-btn
             v-for="icon in icons"
