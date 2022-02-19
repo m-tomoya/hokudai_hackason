@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="hello">
-      <h1>Support List</h1>
+      <h1>{{ title }}</h1>
       <v-card>
         <v-card-title>
           <v-text-field
@@ -18,7 +18,13 @@
           :search="search"
           :items-per-page="100"
           class="elevation-1"
-        ></v-data-table>
+        >
+          <template v-if="isSupports" v-slot:[`item.name`]="{ item }">
+            <a :href="item.url">
+              {{ item.name }}
+            </a>
+          </template>
+        </v-data-table>
       </v-card>
     </div>
   </v-container>
@@ -30,19 +36,9 @@ export default {
   name: "SupportsView",
   data: () => {
     return {
-      // headers: [
-      //   {
-      //     text: "Dessert (100g serving)",
-      //     value: "name",
-      //   },
-      //   { text: "Calories", value: "calories" },
-      //   { text: "Fat (g)", value: "fat" },
-      //   { text: "Carbs (g)", value: "carbs" },
-      //   { text: "Protein (g)", value: "protein" },
-      //   { text: "Iron (%)", value: "iron" },
-      // ],
       search: "",
       path: "",
+      isSupports: true,
       hostsHeaders: [
         {
           text: "Name",
@@ -74,15 +70,18 @@ export default {
   },
   created() {
     this.path = this.$route.path;
+    this.isSupports = this.path === "/supports";
     console.log(this.path);
     this.setList();
   },
   methods: {
     setList() {
       if (this.path === "/hosts") {
+        this.title = "農地提供者一覧";
         this.headers = this.hostsHeaders;
         this.getHostsList();
       } else if (this.path === "/supports") {
+        this.title = "補助金一覧";
         this.headers = this.supportsHeaders;
         this.getSupportsList();
       }
@@ -122,6 +121,7 @@ export default {
           item.officeName = fields.officeName.stringValue;
           item.startAt = fields.startAt.stringValue;
           item.endAt = fields.endAt.stringValue;
+          item.url = fields.url.stringValue;
           return item;
         });
         console.log(this.items);
