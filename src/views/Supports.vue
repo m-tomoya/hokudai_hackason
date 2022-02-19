@@ -41,27 +41,27 @@ export default {
       isSupports: true,
       hostsHeaders: [
         {
-          text: "Name",
+          text: "空き家所有者氏名",
           align: "start",
           sortable: false,
           value: "name",
         },
-        { text: "Address", value: "address" },
-        { text: "Note", value: "note" },
-        { text: "Type", value: "type" },
+        { text: "住所", value: "address" },
+        { text: "空き家種類(農地)", value: "type" },
+        { text: "備考", value: "note" },
       ],
       supportsHeaders: [
         {
-          text: "Name",
+          text: "補助金名",
           align: "start",
           sortable: false,
           value: "name",
         },
-        { text: "Address", value: "address" },
-        { text: "Note", value: "note" },
-        { text: "OfficeName", value: "officeName" },
-        { text: "StartAt", value: "startAt" },
-        { text: "EndAt", value: "endAt" },
+        { text: "団体名", value: "officeName" },
+        { text: "住所", value: "address" },
+        { text: "申請募集開始日", value: "startAt" },
+        { text: "申請募集締切日", value: "endAt" },
+        { text: "備考", value: "note" },
       ],
       hosts: [],
       supports: [],
@@ -116,8 +116,8 @@ export default {
           item.address = fields.address.stringValue;
           item.note = fields.note.stringValue;
           item.officeName = fields.officeName.stringValue;
-          item.startAt = fields.startAt.stringValue;
-          item.endAt = fields.endAt.stringValue;
+          item.startAt = fields.startAt.timestampValue;
+          item.endAt = fields.endAt.timestampValue;
           item.url = fields.url.stringValue;
           return item;
         });
