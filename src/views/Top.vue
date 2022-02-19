@@ -35,7 +35,7 @@
           </a>
         </li>
       </ul>
-      <h3>事業者向け補助金登録フォーム</h3>
+      <h3>補助金登録フォーム</h3>
       <ul>
         <li>
           <a
@@ -43,7 +43,7 @@
             target="_blank"
             rel="noopener"
           >
-            事業者向け補助金登録フォーム
+            補助金登録フォーム
           </a>
         </li>
       </ul>
@@ -57,6 +57,18 @@
           >
             新規就農者登録フォーム
           </a>
+        </li>
+      </ul>
+      <h3>農地提供者一覧</h3>
+      <ul>
+        <li>
+          <router-link to="/hosts">農地提供者一覧</router-link>
+        </li>
+      </ul>
+      <h3>補助金一覧</h3>
+      <ul>
+        <li>
+          <router-link to="/supports">補助金一覧</router-link>
         </li>
       </ul>
     </div>
