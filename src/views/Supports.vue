@@ -42,7 +42,19 @@ export default {
       //   { text: "Iron (%)", value: "iron" },
       // ],
       search: "",
-      headers: [
+      path: "",
+      hostsHeaders: [
+        {
+          text: "Name",
+          align: "start",
+          sortable: false,
+          value: "name",
+        },
+        { text: "Address", value: "address" },
+        { text: "Note", value: "note" },
+        { text: "Type", value: "type" },
+      ],
+      supportsHeaders: [
         {
           text: "Name",
           align: "start",
@@ -55,14 +67,38 @@ export default {
         { text: "StartAt", value: "startAt" },
         { text: "EndAt", value: "endAt" },
       ],
+      hosts: [],
       supports: [],
       items: [],
     };
   },
   created() {
-    this.getSupportsList();
+    this.path = this.$route.path;
+    console.log(this.path);
+    this.setList();
   },
   methods: {
+    setList() {
+      if (this.path === "/hosts") {
+        this.headers = this.hostsHeaders;
+        this.getHostsList();
+      } else if (this.path === "/supports") {
+        this.headers = this.supportsHeaders;
+        this.getSupportsList();
+      }
+    },
+    getHostsList() {
+      axios
+        .get(
+          // url
+          "https://firestore.googleapis.com/v1/projects/hokudai-hackason/databases/(default)/documents/hosts"
+        )
+        .then((response) => {
+          this.hosts = response.data.documents;
+          console.log(this.hosts);
+          this.setItems();
+        });
+    },
     getSupportsList() {
       axios
         .get(
@@ -76,18 +112,31 @@ export default {
         });
     },
     setItems() {
-      this.items = this.supports.map((item) => {
-        const fields = item.fields;
-        item = {};
-        item.name = fields.name.stringValue;
-        item.address = fields.address.stringValue;
-        item.note = fields.note.stringValue;
-        item.officeName = fields.officeName.stringValue;
-        item.startAt = fields.startAt.stringValue;
-        item.endAt = fields.endAt.stringValue;
-        return item;
-      });
-      console.log(this.items);
+      if (this.path === "/supports") {
+        this.items = this.supports.map((item) => {
+          const fields = item.fields;
+          item = {};
+          item.name = fields.name.stringValue;
+          item.address = fields.address.stringValue;
+          item.note = fields.note.stringValue;
+          item.officeName = fields.officeName.stringValue;
+          item.startAt = fields.startAt.stringValue;
+          item.endAt = fields.endAt.stringValue;
+          return item;
+        });
+        console.log(this.items);
+      } else if (this.path === "/hosts") {
+        this.items = this.hosts.map((item) => {
+          const fields = item.fields;
+          item = {};
+          item.name = fields.name.stringValue;
+          item.address = fields.address.stringValue;
+          item.note = fields.note.stringValue;
+          item.type = fields.type.stringValue;
+          return item;
+        });
+        console.log(this.items);
+      }
     },
   },
 };

@@ -23,6 +23,11 @@ const routes = [
     component: SupportsView,
   },
   {
+    path: "/hosts",
+    name: "hosts",
+    component: SupportsView,
+  },
+  {
     path: "/about",
     name: "about",
     // route level code-splitting
