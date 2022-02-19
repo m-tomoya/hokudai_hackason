@@ -4,15 +4,18 @@
       <v-carousel
         cycle
         height="400"
+        width="1200"
         hide-delimiter-background
         show-arrows-on-hover
       >
+        <!-- <img src="../assets/img/IMG001.jpg" alt="Logo" /> -->
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-sheet :color="colors[i]" height="100%">
-            <v-row class="fill-height" align="center" justify="center">
-              <div class="text-h2">{{ slide }} Slide</div>
-            </v-row>
-          </v-sheet>
+          <img :src="slide" height="100%" width="100%" />
+          <!-- <v-sheet :color="colors[i]" height="100%"> -->
+          <!--   <v-row class="fill-height" align="center" justify="center"> -->
+          <!--     <div class="text-h2">{{ slide }} Slide</div> -->
+          <!--   </v-row> -->
+          <!-- </v-sheet> -->
         </v-carousel-item>
       </v-carousel>
       <v-card max-width="1200" class="mx-auto">
@@ -113,7 +116,17 @@ export default {
         "red lighten-1",
         "deep-purple accent-4",
       ],
-      slides: ["First", "Second", "Third", "Fourth", "Fifth"],
+      slides: [
+        require("../assets/img/IMG008.jpg"),
+        require("../assets/img/IMG001.jpg"),
+        require("../assets/img/IMG002.jpg"),
+        require("../assets/img/IMG003.jpg"),
+        require("../assets/img/IMG004.jpg"),
+        require("../assets/img/IMG006.jpg"),
+        require("../assets/img/IMG007.jpg"),
+        require("../assets/img/IMG009.jpg"),
+        require("../assets/img/IMG010.jpg"),
+      ],
     };
   },
 };
