@@ -23,54 +23,70 @@
       <!-- <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>. -->
       <!-- </p> -->
       <!-- <h3>Installed CLI Plugins</h3> -->
-      <h3>農地提供者登録フォーム</h3>
-      <ul>
-        <li>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdd1L-RufdegiAyxMt6QVht2n1VeNCpIzild465XCnKdolCuQ/viewform"
-            target="_blank"
-            rel="noopener"
-          >
-            農地提供者登録フォーム
-          </a>
-        </li>
-      </ul>
-      <h3>補助金登録フォーム</h3>
-      <ul>
-        <li>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfsDdJqyvHDpN5Jnw0GBV44S5UDqOHyJbtoNb23nqNyaaR31w/viewform"
-            target="_blank"
-            rel="noopener"
-          >
-            補助金登録フォーム
-          </a>
-        </li>
-      </ul>
-      <h3>新規就農者登録フォーム</h3>
-      <ul>
-        <li>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScHMjgFRtS8ApeZ2FpXn3iXqLeBYXSHPmt3-hUopnHl0ff5bg/viewform"
-            target="_blank"
-            rel="noopener"
-          >
-            新規就農者登録フォーム
-          </a>
-        </li>
-      </ul>
-      <h3>農地提供者一覧</h3>
-      <ul>
-        <li>
-          <router-link to="/hosts">農地提供者一覧</router-link>
-        </li>
-      </ul>
-      <h3>補助金一覧</h3>
-      <ul>
-        <li>
-          <router-link to="/supports">補助金一覧</router-link>
-        </li>
-      </ul>
+      <v-card max-width="1200" class="mx-auto">
+        <v-container>
+          <v-row dense>
+            <!-- <v-col cols="12"> -->
+            <!--   <v-card color="#385F73" dark> -->
+            <!--     <v-card-title class="text-h5"> -->
+            <!--       Unlimited music now -->
+            <!--     </v-card-title> -->
+            <!--  -->
+            <!--     <v-card-subtitle -->
+            <!--       >Listen to your favorite artists and albums whenever and -->
+            <!--       wherever, online and offline.</v-card-subtitle -->
+            <!--     > -->
+            <!--  -->
+            <!--     <v-card-actions> -->
+            <!--       <v-btn text> Listen Now </v-btn> -->
+            <!--     </v-card-actions> -->
+            <!--   </v-card> -->
+            <!-- </v-col> -->
+
+            <v-col v-for="(item, i) in items" :key="i" cols="12">
+              <v-card :color="item.color" dark>
+                <div class="d-flex flex-no-wrap justify-space-between">
+                  <div>
+                    <v-card-title
+                      class="text-h5"
+                      v-text="item.title"
+                    ></v-card-title>
+
+                    <v-card-subtitle v-text="item.subtitle"></v-card-subtitle>
+
+                    <v-card-actions>
+                      <v-btn
+                        class="ml-2 mt-5"
+                        outlined
+                        rounded
+                        small
+                        :href="item.url"
+                        v-if="item.isForm"
+                      >
+                        FORM
+                      </v-btn>
+                      <v-btn
+                        class="ml-2 mt-5"
+                        outlined
+                        rounded
+                        small
+                        v-else
+                        :to="item.url"
+                      >
+                        FORM
+                      </v-btn>
+                    </v-card-actions>
+                  </div>
+
+                  <!-- <v-avatar class="ma-3" size="125" tile> -->
+                  <!--   <v-img :src="item.src"></v-img> -->
+                  <!-- </v-avatar> -->
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card>
     </div>
   </v-container>
 </template>
@@ -83,6 +99,48 @@ export default {
   },
   data: () => {
     return {
+      items: [
+        {
+          color: "#1F7087",
+          // src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
+          title: "農地提供者登録フォーム",
+          subtitle: "農地提供者登録フォーム",
+          url: "https://docs.google.com/forms/d/e/1FAIpQLSdd1L-RufdegiAyxMt6QVht2n1VeNCpIzild465XCnKdolCuQ/viewform",
+          isForm: true,
+        },
+        {
+          color: "#952175",
+          // src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
+          title: "補助金登録フォーム",
+          subtitle: "農地提供者登録フォーム",
+          url: "https://docs.google.com/forms/d/e/1FAIpQLSfsDdJqyvHDpN5Jnw0GBV44S5UDqOHyJbtoNb23nqNyaaR31w/viewform",
+          isForm: true,
+        },
+        {
+          color: "#1F7087",
+          // src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
+          title: "新規就農者登録フォーム",
+          subtitle: "農地提供者登録フォーム",
+          url: "https://docs.google.com/forms/d/e/1FAIpQLScHMjgFRtS8ApeZ2FpXn3iXqLeBYXSHPmt3-hUopnHl0ff5bg/viewform",
+          isForm: true,
+        },
+        {
+          color: "#952175",
+          // src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
+          title: "農地提供者一覧",
+          subtitle: "農地提供者登録フォーム",
+          url: "/hosts",
+          isForm: false,
+        },
+        {
+          color: "#952175",
+          // src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
+          title: "補助金一覧",
+          subtitle: "農地提供者登録フォーム",
+          url: "/supports",
+          isForm: false,
+        },
+      ],
       colors: [
         "indigo",
         "warning",
