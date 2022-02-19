@@ -71,13 +71,12 @@ export default {
   created() {
     this.path = this.$route.path;
     this.isSupports = this.path === "/supports";
-    console.log(this.path);
     this.setList();
   },
   methods: {
     setList() {
       if (this.path === "/hosts") {
-        this.title = "農地提供者一覧";
+        this.title = "空き家提供者一覧";
         this.headers = this.hostsHeaders;
         this.getHostsList();
       } else if (this.path === "/supports") {
@@ -94,7 +93,6 @@ export default {
         )
         .then((response) => {
           this.hosts = response.data.documents;
-          console.log(this.hosts);
           this.setItems();
         });
     },
@@ -106,7 +104,6 @@ export default {
         )
         .then((response) => {
           this.supports = response.data.documents;
-          console.log(this.supports);
           this.setItems();
         });
     },
@@ -124,7 +121,6 @@ export default {
           item.url = fields.url.stringValue;
           return item;
         });
-        console.log(this.items);
       } else if (this.path === "/hosts") {
         this.items = this.hosts.map((item) => {
           const fields = item.fields;
@@ -135,7 +131,6 @@ export default {
           item.type = fields.type.stringValue;
           return item;
         });
-        console.log(this.items);
       }
     },
   },

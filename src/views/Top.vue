@@ -1,8 +1,6 @@
 <template>
   <v-container>
     <div class="hello">
-      <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-      <!-- <h1>Agriculture Solution for Empty Housing</h1> -->
       <v-carousel
         cycle
         height="400"
@@ -17,32 +15,9 @@
           </v-sheet>
         </v-carousel-item>
       </v-carousel>
-      <!-- <p> -->
-      <!--   Solution Platform for Empty Housing Problem In Hokkaido. <br /> -->
-      <!--   Sponcered by Hokkaido University. -->
-      <!-- <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>. -->
-      <!-- </p> -->
-      <!-- <h3>Installed CLI Plugins</h3> -->
       <v-card max-width="1200" class="mx-auto">
         <v-container>
           <v-row dense>
-            <!-- <v-col cols="12"> -->
-            <!--   <v-card color="#385F73" dark> -->
-            <!--     <v-card-title class="text-h5"> -->
-            <!--       Unlimited music now -->
-            <!--     </v-card-title> -->
-            <!--  -->
-            <!--     <v-card-subtitle -->
-            <!--       >Listen to your favorite artists and albums whenever and -->
-            <!--       wherever, online and offline.</v-card-subtitle -->
-            <!--     > -->
-            <!--  -->
-            <!--     <v-card-actions> -->
-            <!--       <v-btn text> Listen Now </v-btn> -->
-            <!--     </v-card-actions> -->
-            <!--   </v-card> -->
-            <!-- </v-col> -->
-
             <v-col v-for="(item, i) in items" :key="i" cols="12">
               <v-card :color="item.color" dark>
                 <div class="d-flex flex-no-wrap justify-space-between">
@@ -51,36 +26,30 @@
                       class="text-h5"
                       v-text="item.title"
                     ></v-card-title>
-
                     <v-card-subtitle v-text="item.subtitle"></v-card-subtitle>
-
                     <v-card-actions>
                       <v-btn
                         class="ml-2 mt-5"
                         outlined
                         rounded
-                        small
+                        large
                         :href="item.url"
                         v-if="item.isForm"
                       >
-                        FORM
+                        GO FORM
                       </v-btn>
                       <v-btn
                         class="ml-2 mt-5"
                         outlined
                         rounded
-                        small
+                        large
                         v-else
                         :to="item.url"
                       >
-                        FORM
+                        GO LIST
                       </v-btn>
                     </v-card-actions>
                   </div>
-
-                  <!-- <v-avatar class="ma-3" size="125" tile> -->
-                  <!--   <v-img :src="item.src"></v-img> -->
-                  <!-- </v-avatar> -->
                 </div>
               </v-card>
             </v-col>
@@ -102,41 +71,37 @@ export default {
       items: [
         {
           color: "#1F7087",
-          // src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-          title: "農地提供者登録フォーム",
-          subtitle: "農地提供者登録フォーム",
+          src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
+          title: "空き家提供者登録フォーム",
+          subtitle: "空き家提供者登録フォーム",
           url: "https://docs.google.com/forms/d/e/1FAIpQLSdd1L-RufdegiAyxMt6QVht2n1VeNCpIzild465XCnKdolCuQ/viewform",
           isForm: true,
         },
         {
-          color: "#952175",
-          // src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
+          color: "#1F7087",
           title: "補助金登録フォーム",
-          subtitle: "農地提供者登録フォーム",
+          subtitle: "空き家提供者登録フォーム",
           url: "https://docs.google.com/forms/d/e/1FAIpQLSfsDdJqyvHDpN5Jnw0GBV44S5UDqOHyJbtoNb23nqNyaaR31w/viewform",
           isForm: true,
         },
         {
           color: "#1F7087",
-          // src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
           title: "新規就農者登録フォーム",
-          subtitle: "農地提供者登録フォーム",
+          subtitle: "空き家提供者登録フォーム",
           url: "https://docs.google.com/forms/d/e/1FAIpQLScHMjgFRtS8ApeZ2FpXn3iXqLeBYXSHPmt3-hUopnHl0ff5bg/viewform",
           isForm: true,
         },
         {
           color: "#952175",
-          // src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
-          title: "農地提供者一覧",
-          subtitle: "農地提供者登録フォーム",
+          title: "空き家提供者一覧",
+          subtitle: "空き家提供者登録フォーム",
           url: "/hosts",
           isForm: false,
         },
         {
           color: "#952175",
-          // src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
           title: "補助金一覧",
-          subtitle: "農地提供者登録フォーム",
+          subtitle: "空き家提供者登録フォーム",
           url: "/supports",
           isForm: false,
         },
@@ -154,7 +119,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
