@@ -16,7 +16,7 @@
     <v-main>
       <router-view />
     </v-main>
-    <v-footer dark padless app>
+    <v-footer dark padless app absolute>
       <v-card flat tile class="green lighten-1 white--text text-center">
         <v-card-text>
           <v-btn
