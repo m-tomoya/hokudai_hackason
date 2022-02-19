@@ -17,13 +17,13 @@
           </v-sheet>
         </v-carousel-item>
       </v-carousel>
-      <p>
-        Solution Platform for Empty Housing Problem In Hokkaido. <br />
-        Sponcered by Hokkaido University.
-        <!-- <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>. -->
-      </p>
+      <!-- <p> -->
+      <!--   Solution Platform for Empty Housing Problem In Hokkaido. <br /> -->
+      <!--   Sponcered by Hokkaido University. -->
+      <!-- <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>. -->
+      <!-- </p> -->
       <!-- <h3>Installed CLI Plugins</h3> -->
-      <h3>HOST REGISTER FORM</h3>
+      <h3>農地提供者登録フォーム</h3>
       <ul>
         <li>
           <a
@@ -31,11 +31,11 @@
             target="_blank"
             rel="noopener"
           >
-            HOST REGISTER FORM
+            農地提供者登録フォーム
           </a>
         </li>
       </ul>
-      <h3>SUPPORTER REGISTER FORM</h3>
+      <h3>事業者向け補助金登録フォーム</h3>
       <ul>
         <li>
           <a
@@ -43,15 +43,19 @@
             target="_blank"
             rel="noopener"
           >
-            SUPPORTER REGISTER FORM
+            事業者向け補助金登録フォーム
           </a>
         </li>
       </ul>
-      <h3>HOKUDAI HACKASON</h3>
+      <h3>新規就農者登録フォーム</h3>
       <ul>
         <li>
-          <a href="https://router.vuejs.org" target="_blank" rel="noopener">
-            HOKUDAI HACKASON
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScHMjgFRtS8ApeZ2FpXn3iXqLeBYXSHPmt3-hUopnHl0ff5bg/viewform"
+            target="_blank"
+            rel="noopener"
+          >
+            新規就農者登録フォーム
           </a>
         </li>
       </ul>
